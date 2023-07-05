@@ -1,15 +1,23 @@
 import './App.css';
-import FormZod from './components/FormZod';
-// import FormHookForm from './components/FormHookForm';
-// import FormReact from './components/FormReact';
+
+// NEW TASK:
+// Build an expense tracker
+// 3 fields:
+// Description - string
+// Amount - number
+// Category - Groceries, utilities, entertainment
+
+// Items get submitted to a table:
+// Description | Amount | Category  |        |
+// MILK        | $5.00  | Groceries | DELETE |
+
+// Make the table filterable by category - All, groceries, utilities, entertainment
+// Make the DELETE button delete items
 
 function App() {
   return (
     <div>
-      <h1>Practice forms project</h1>
-      {/* <FormReact /> */}
-      {/* <FormHookForm /> */}
-      <FormZod />
+      <h1>Expense Tracker</h1>
     </div>
   );
 }
