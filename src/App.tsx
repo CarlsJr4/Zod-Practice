@@ -1,5 +1,6 @@
 import './App.css';
-import FormHookForm from './components/FormHookForm';
+import FormZod from './components/FormZod';
+// import FormHookForm from './components/FormHookForm';
 // import FormReact from './components/FormReact';
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
     <div>
       <h1>Practice forms project</h1>
       {/* <FormReact /> */}
-      <FormHookForm />
+      {/* <FormHookForm /> */}
+      <FormZod />
     </div>
   );
 }
