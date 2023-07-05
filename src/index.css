@@ -26,7 +26,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -55,7 +54,24 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+button[type="submit"] {
+	color: #1a1a1a;
+	background: lightblue;
+	margin-top: 1rem;
+}
+
+.formError {
+	color: red;
+}
+
+form {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
     background-color: #ffffff;
