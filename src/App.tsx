@@ -12,18 +12,6 @@ function App() {
     [] as ExpenseTableType[]
   );
 
-  // For this function, we need to grab form data and append or remove it from the array
-  // const handleUpdateExpenses = () => {
-  //   updateExpenses([
-  //     {
-  //       id: '3',
-  //       description: '3',
-  //       amount: 3,
-  //       category: '3',
-  //     },
-  //   ]);
-  // };
-
   const handleDelete = (id: string) => {
     let expensesState = [...expenses];
     expensesState = expensesState.filter(expense => expense.id !== id);

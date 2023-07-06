@@ -24,8 +24,6 @@ export default function TrackerForm({
     formState: { errors },
   } = useForm<ExpenseType>({ resolver: zodResolver(ExpenseSchema) });
 
-  console.log(errors);
-
   return (
     <form
       onSubmit={handleSubmit(data => {
