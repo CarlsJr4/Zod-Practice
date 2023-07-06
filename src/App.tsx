@@ -3,7 +3,6 @@ import './App.css';
 import TrackerForm from './components/TrackerForm';
 import TrackerTable from './components/TrackerTable';
 import ExpenseTableType from './types/ExpenseTableType';
-import ExpenseType from './types/ExpenseType';
 
 // NEW TASK:
 // Make the table filterable by category - All, groceries, utilities, entertainment
