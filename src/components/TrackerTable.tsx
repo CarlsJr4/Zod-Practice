@@ -1,6 +1,12 @@
-// We need to make anything that isn't the first table row dependent on state
+import ExpenseTableType from '../types/ExpenseTableType';
 
-export default function TrackerTable() {
+export default function TrackerTable({
+  expenses,
+  handleDelete,
+}: {
+  expenses: ExpenseTableType[];
+  handleDelete: (id: string) => void;
+}) {
   return (
     <table>
       <tbody>
@@ -10,14 +16,18 @@ export default function TrackerTable() {
           <th>Category</th>
           <th></th>
         </tr>
-        <tr>
-          <td>MILK</td>
-          <td>$5.00</td>
-          <td>Groceries</td>
-          <td>
-            <button>DELETE</button>
-          </td>
-        </tr>
+        {expenses.map(({ amount, category, description, id }) => {
+          return (
+            <tr>
+              <td>{amount}</td>
+              <td>{category}</td>
+              <td>{description}</td>
+              <td>
+                <button onClick={() => handleDelete(id)}>Delete</button>
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

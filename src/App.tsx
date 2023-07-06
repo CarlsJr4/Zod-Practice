@@ -26,9 +26,42 @@ function App() {
   // [{id: '', description: '', amount: '', category: ''}]
   // How can we have React listen for this type?
   // Look for an array of an interface
-  const [expense, updateExpenses] = useState<ExpenseTableType[]>(
-    [] as ExpenseTableType[]
+  const [expenses, updateExpenses] = useState<ExpenseTableType[]>(
+    // [] as ExpenseTableType[]
+    [
+      {
+        id: '3',
+        description: '3',
+        amount: 3,
+        category: '3',
+      },
+      {
+        id: '4',
+        description: '3',
+        amount: 3,
+        category: '3',
+      },
+    ]
   );
+
+  // For this function, we need to grab form data and append or remove it from the array
+  // const handleUpdateExpenses = () => {
+  //   updateExpenses([
+  //     {
+  //       id: '3',
+  //       description: '3',
+  //       amount: 3,
+  //       category: '3',
+  //     },
+  //   ]);
+  // };
+
+  const handleDelete = (id: string) => {
+    let expensesState: ExpenseTableType[] = [...expenses];
+    expensesState = expensesState.filter(expense => expense.id !== id);
+    updateExpenses(expensesState);
+    return;
+  };
 
   return (
     <>
@@ -37,7 +70,7 @@ function App() {
         <TrackerForm />
       </div>
       <br />
-      <TrackerTable />
+      <TrackerTable expenses={expenses} handleDelete={handleDelete} />
     </>
   );
 }
