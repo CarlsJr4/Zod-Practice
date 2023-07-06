@@ -3,6 +3,7 @@ import './App.css';
 import TrackerForm from './components/TrackerForm';
 import TrackerTable from './components/TrackerTable';
 import ExpenseTableType from './types/ExpenseTableType';
+import ExpenseType from './types/ExpenseType';
 
 // NEW TASK:
 // Build an expense tracker
@@ -27,21 +28,7 @@ function App() {
   // How can we have React listen for this type?
   // Look for an array of an interface
   const [expenses, updateExpenses] = useState<ExpenseTableType[]>(
-    // [] as ExpenseTableType[]
-    [
-      {
-        id: '3',
-        description: '3',
-        amount: 3,
-        category: '3',
-      },
-      {
-        id: '4',
-        description: '3',
-        amount: 3,
-        category: '3',
-      },
-    ]
+    [] as ExpenseTableType[]
   );
 
   // For this function, we need to grab form data and append or remove it from the array
@@ -57,17 +44,23 @@ function App() {
   // };
 
   const handleDelete = (id: string) => {
-    let expensesState: ExpenseTableType[] = [...expenses];
+    let expensesState = [...expenses];
     expensesState = expensesState.filter(expense => expense.id !== id);
     updateExpenses(expensesState);
     return;
+  };
+
+  const onSubmit = (data: ExpenseTableType) => {
+    const expensesState = [...expenses];
+    expensesState.push(data);
+    updateExpenses(expensesState);
   };
 
   return (
     <>
       <div>
         <h1>Expense Tracker</h1>
-        <TrackerForm />
+        <TrackerForm onSubmit={onSubmit} />
       </div>
       <br />
       <TrackerTable expenses={expenses} handleDelete={handleDelete} />

@@ -1,19 +1,28 @@
 import { useForm } from 'react-hook-form';
 import ExpenseType from '../types/ExpenseType';
+import ExpenseTableType from '../types/ExpenseTableType';
+import uniqid from 'uniqid';
 
-export default function TrackerForm() {
+export default function TrackerForm({
+  onSubmit,
+}: {
+  onSubmit: (data: ExpenseTableType) => void;
+}) {
   const {
     register,
     handleSubmit,
+    reset,
     // formState: { errors },
   } = useForm<ExpenseType>();
 
-  const onSubmit = (data: ExpenseType) => {
-    console.log(data);
-  };
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(data => {
+        const dataWithId = { ...data, id: uniqid() };
+        onSubmit(dataWithId);
+        reset();
+      })}
+    >
       <label htmlFor="description">Description:</label>
       <input
         {...register('description')}

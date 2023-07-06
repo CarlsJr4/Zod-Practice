@@ -18,7 +18,7 @@ export default function TrackerTable({
         </tr>
         {expenses.map(({ amount, category, description, id }) => {
           return (
-            <tr>
+            <tr key={id}>
               <td>{amount}</td>
               <td>{category}</td>
               <td>{description}</td>
