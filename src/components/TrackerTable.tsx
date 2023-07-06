@@ -19,9 +19,9 @@ export default function TrackerTable({
         {expenses.map(({ amount, category, description, id }) => {
           return (
             <tr key={id}>
+              <td>{description}</td>
               <td>{amount}</td>
               <td>{category}</td>
-              <td>{description}</td>
               <td>
                 <button onClick={() => handleDelete(id)}>Delete</button>
               </td>

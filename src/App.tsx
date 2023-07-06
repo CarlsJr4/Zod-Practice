@@ -6,27 +6,9 @@ import ExpenseTableType from './types/ExpenseTableType';
 import ExpenseType from './types/ExpenseType';
 
 // NEW TASK:
-// Build an expense tracker
-// 3 fields:
-// Description - string
-// Amount - number
-// Category - Groceries, utilities, entertainment
-
-// Items get submitted to a table:
-// Description | Amount | Category  |        |
-// MILK        | $5.00  | Groceries | DELETE |
-
 // Make the table filterable by category - All, groceries, utilities, entertainment
-// Make the DELETE button delete items
 
 function App() {
-  // We need to type expenses - What will the data structure look like?
-  // Will it be an array of objects?
-  // We probably need an ID to be able to update these objects
-  // Use the uniqid library to generate IDs
-  // [{id: '', description: '', amount: '', category: ''}]
-  // How can we have React listen for this type?
-  // Look for an array of an interface
   const [expenses, updateExpenses] = useState<ExpenseTableType[]>(
     [] as ExpenseTableType[]
   );
