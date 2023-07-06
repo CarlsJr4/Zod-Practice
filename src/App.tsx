@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './App.css';
 import TrackerForm from './components/TrackerForm';
 import TrackerTable from './components/TrackerTable';
 import ExpenseTableType from './types/ExpenseTableType';
-
-// NEW TASK:
-// Make the table filterable by category - All, groceries, utilities, entertainment
+import TrackerFilter from './components/TrackerFilter';
 
 function App() {
   const [expenses, updateExpenses] = useState<ExpenseTableType[]>(
     [] as ExpenseTableType[]
   );
+
+  const [filter, updateFilter] = useState('');
 
   const handleDelete = (id: string) => {
     let expensesState = [...expenses];
@@ -25,6 +25,11 @@ function App() {
     updateExpenses(expensesState);
   };
 
+  const filterExpenses = (e: ChangeEvent<HTMLSelectElement>) => {
+    updateFilter(e.target.value);
+    return;
+  };
+
   return (
     <>
       <div>
@@ -32,7 +37,13 @@ function App() {
         <TrackerForm onSubmit={onSubmit} />
       </div>
       <br />
-      <TrackerTable expenses={expenses} handleDelete={handleDelete} />
+      <TrackerFilter onChange={filterExpenses} />
+      <br />
+      <TrackerTable
+        filter={filter}
+        expenses={expenses}
+        handleDelete={handleDelete}
+      />
     </>
   );
 }
