@@ -54,7 +54,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-button[type="submit"] {
+button[type="submit"], button {
 	color: #1a1a1a;
 	background: lightblue;
 	margin-top: 1rem;
@@ -69,6 +69,12 @@ form {
 	align-items: flex-start;
 	flex-direction: column;
 	gap: 0.5rem;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
