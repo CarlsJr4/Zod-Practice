@@ -15,7 +15,7 @@ export default function TrackerForm({
       .string()
       .min(4, { message: 'Description must be at least 4 characters long.' }),
     amount: z.coerce.number().gte(1, { message: 'Amount must be 1 or more.' }),
-    category: z.literal('groceries' || 'utilities' || 'entertainment'), // How do we customize the error for this?
+    category: z.string().min(1, { message: 'Please select a category' }),
   });
   const {
     register,
